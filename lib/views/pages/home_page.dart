@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             onPressed: () {},
             icon: const Icon(
-              Icons.menu,
+              Icons.more_vert,
               color: kFourthColor,
             ),
           ),
