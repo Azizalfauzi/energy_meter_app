@@ -1,5 +1,6 @@
-import 'package:energy_meter_app/views/pages/splashscreen_page.dart';
 import 'package:flutter/material.dart';
+
+import 'views/pages/pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreenPage(),
+      home: const MainPage(),
     );
   }
 }

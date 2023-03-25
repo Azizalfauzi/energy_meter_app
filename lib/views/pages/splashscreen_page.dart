@@ -1,5 +1,4 @@
-import 'package:energy_meter_app/shared/shared.dart';
-import 'package:flutter/material.dart';
+part of 'pages.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -35,7 +34,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               ),
             ),
           ),
-
         ],
       ),
     );
