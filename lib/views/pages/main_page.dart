@@ -44,15 +44,15 @@ class _MainPageState extends State<MainPage> {
                     _selectedPage = index;
                   });
                 },
-                children: [
+                children: const [
                   Center(
-                    child: Text('Home'),
+                    child: HomePage(),
                   ),
                   Center(
-                    child: Text('Warning'),
+                    child: WarningPage(),
                   ),
                   Center(
-                    child: Text('Critical'),
+                    child: CriticalPage(),
                   ),
                   // Center(
                   //   child: HomePageCsa(),
