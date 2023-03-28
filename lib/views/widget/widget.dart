@@ -3,3 +3,4 @@ import 'package:flutter/material.dart';
 
 part 'widget_c_navigation_bottom.dart';
 part 'widget_card_room.dart';
+part 'widget_c_navigation_chart_bottom.dart';

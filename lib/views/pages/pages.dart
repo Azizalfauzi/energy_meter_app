@@ -10,3 +10,5 @@ part 'main_page.dart';
 part 'critical_page.dart';
 part 'home_page.dart';
 part 'warning_page.dart';
+part 'detail_page.dart';
+part 'main_page_chart.dart';

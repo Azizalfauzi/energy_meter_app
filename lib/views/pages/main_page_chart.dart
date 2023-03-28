@@ -1,17 +1,17 @@
 part of 'pages.dart';
 
-class MainPage extends StatefulWidget {
+class MainPageChart extends StatefulWidget {
   final int initialPage;
-  const MainPage({
+  const MainPageChart({
     super.key,
     this.initialPage = 0,
   });
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainPageChart> createState() => _MainPageChartState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageChartState extends State<MainPageChart> {
   int _selectedPage = 0;
   late PageController _pageController;
 
@@ -45,19 +45,22 @@ class _MainPageState extends State<MainPage> {
               },
               children: const [
                 Center(
-                  child: HomePage(),
+                  child: Text('Satu'),
                 ),
                 Center(
-                  child: WarningPage(),
+                  child: Text('dua'),
                 ),
                 Center(
-                  child: CriticalPage(),
+                  child: Text('tiga'),
+                ),
+                Center(
+                  child: Text('empat'),
                 ),
               ],
             ),
             Align(
-              alignment: Alignment.bottomCenter,
-              child: CustomBottomNavigation(
+              alignment: Alignment.topCenter,
+              child: CustomChartBottomNavigation(
                 selectedIndex: _selectedPage,
                 onTap: (index) {
                   setState(() {
