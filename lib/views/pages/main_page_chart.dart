@@ -45,16 +45,16 @@ class _MainPageChartState extends State<MainPageChart> {
               },
               children: const [
                 Center(
-                  child: Text('Satu'),
+                  child: EnergyChart(),
                 ),
                 Center(
-                  child: Text('dua'),
+                  child: VoltageChart(),
                 ),
                 Center(
-                  child: Text('tiga'),
+                  child: CurrentChart(),
                 ),
                 Center(
-                  child: Text('empat'),
+                  child: PowerChart(),
                 ),
               ],
             ),
