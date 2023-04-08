@@ -9,6 +9,19 @@ class SplashScreenPage extends StatefulWidget {
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
+  void initState() {
+    _checkStatusPage();
+    super.initState();
+  }
+
+  Future<void> _checkStatusPage() async {
+    var duration = const Duration(milliseconds: 2000);
+    Timer(duration, () {
+      context.read<RoutesCubit>().emit(RoutesLoginPage());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff141519),

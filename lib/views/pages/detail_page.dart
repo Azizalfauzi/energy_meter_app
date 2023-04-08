@@ -1,7 +1,21 @@
 part of 'pages.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  final String img;
+  final String vol;
+  final String curr;
+  final String pow;
+  final String room;
+  final String energy;
+  const DetailPage({
+    super.key,
+    required this.img,
+    required this.vol,
+    required this.curr,
+    required this.pow,
+    required this.room,
+    required this.energy,
+  });
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -12,9 +26,9 @@ class _DetailPageState extends State<DetailPage> {
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height / 4,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/image_rs_1.png'),
+          image: AssetImage(widget.img),
           fit: BoxFit.fill,
         ),
       ),
@@ -44,7 +58,7 @@ class _DetailPageState extends State<DetailPage> {
             Row(
               children: [
                 Text(
-                  '1.500.000',
+                  widget.energy,
                   style: blackTextStyleInter.copyWith(
                     fontSize: 24,
                     fontWeight: bold,
@@ -72,8 +86,8 @@ class _DetailPageState extends State<DetailPage> {
                       style: greyTextStyleInter,
                     ),
                     Text(
-                      '18 V',
-                      style: blackTextStyleInter,
+                      widget.vol + ' V',
+                      style: blackTextStyleInter.copyWith(fontWeight: bold),
                     ),
                   ],
                 ),
@@ -84,8 +98,8 @@ class _DetailPageState extends State<DetailPage> {
                       style: greyTextStyleInter,
                     ),
                     Text(
-                      '56,14 A',
-                      style: blackTextStyleInter,
+                      widget.curr + ' A',
+                      style: blackTextStyleInter.copyWith(fontWeight: bold),
                     ),
                   ],
                 ),
@@ -96,8 +110,8 @@ class _DetailPageState extends State<DetailPage> {
                       style: greyTextStyleInter,
                     ),
                     Text(
-                      '56,2 W',
-                      style: blackTextStyleInter,
+                      widget.pow + ' W',
+                      style: blackTextStyleInter.copyWith(fontWeight: bold),
                     ),
                   ],
                 ),
@@ -246,10 +260,10 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   Widget contentThird() {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height/3,
-      child: MainPageChart(),
+      height: MediaQuery.of(context).size.height / 3,
+      child: const MainPageChart(),
     );
   }
 
@@ -447,7 +461,9 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.read<RoutesCubit>().emit(const RoutesMainPage(0));
+          },
           icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
@@ -460,7 +476,7 @@ class _DetailPageState extends State<DetailPage> {
             ),
             Expanded(
               child: Text(
-                'Operation Room 01',
+                widget.room,
                 style: whiteTextStyleInter.copyWith(fontSize: 16),
               ),
             ),

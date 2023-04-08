@@ -246,7 +246,7 @@ class _LoginPageState extends State<LoginPage> {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
             Flushbar(
-              duration: const Duration(milliseconds: 3000),
+              duration: const Duration(milliseconds: 2000),
               flushbarPosition: FlushbarPosition.TOP,
               backgroundColor: Colors.green,
               titleText: Text(
@@ -257,7 +257,8 @@ class _LoginPageState extends State<LoginPage> {
                 'Berhasil melakukan login : $email$password',
                 style: whiteTextStyleInter,
               ),
-            ).show(context);
+            ).show(context).then((value) =>
+                context.read<RoutesCubit>().emit(const RoutesMainPage(0)));
           } else {
             Flushbar(
               duration: const Duration(milliseconds: 3000),

@@ -34,40 +34,45 @@ class _MainPageState extends State<MainPage> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
         backgroundColor: kFourthColor,
-        body: Stack(
-          children: [
-            PageView(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  _selectedPage = index;
-                });
-              },
-              children: const [
-                Center(
-                  child: HomePage(),
-                ),
-                Center(
-                  child: WarningPage(),
-                ),
-                Center(
-                  child: CriticalPage(),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: CustomBottomNavigation(
-                selectedIndex: _selectedPage,
-                onTap: (index) {
+        body: DoubleBackToCloseApp(
+          snackBar: const SnackBar(
+            content: Text('Tap back again to leave'),
+          ),
+          child: Stack(
+            children: [
+              PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
                   setState(() {
                     _selectedPage = index;
                   });
-                  _pageController.jumpToPage(_selectedPage);
                 },
+                children: const [
+                  Center(
+                    child: HomePage(),
+                  ),
+                  Center(
+                    child: WarningPage(),
+                  ),
+                  Center(
+                    child: CriticalPage(),
+                  ),
+                ],
               ),
-            ),
-          ],
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: CustomBottomNavigation(
+                  selectedIndex: _selectedPage,
+                  onTap: (index) {
+                    setState(() {
+                      _selectedPage = index;
+                    });
+                    _pageController.jumpToPage(_selectedPage);
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
